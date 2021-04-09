@@ -22,7 +22,7 @@ class Associate
     /**
      * URL для запроса на ассоциацию.
      */
-    const ASSOCIATE_URL = '/v1/associate/';
+    const ASSOCIATE_URL = '/associate';
 
     /**
      * @var string

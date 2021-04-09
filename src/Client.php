@@ -20,8 +20,8 @@ use Brandshopru\OnlineReceiptApiClient\Contracts\OnlineReceiptOrderInterface;
  */
 class Client implements ClientInterface
 {
-    const STATUS_URI = '/v1/status';
-    const SEND_CHECK_DATA_URI = '/v1/doc';
+    const STATUS_URI = '/status';
+    const SEND_CHECK_DATA_URI = '/doc';
     /**
      * @var string
      */

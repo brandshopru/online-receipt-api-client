@@ -19,12 +19,12 @@ class Config
     /**
      * Базовый URL сервиса.
      */
-    const BASE_URI = 'https://service.modulpos.ru/api/fn';
+    const BASE_URI = 'https://api-or.brandshop.tech/api/v1';
 
     /**
      * Базовый URL сервиса для тестирования.
      */
-    const BASE_TEST_URI = 'https://demo-fn.avanpos.com/fn';
+    const BASE_TEST_URI = 'https://test.api-or.brandshop.tech/api/v1';
 
     /**
      * Возвращает базовый URL.
