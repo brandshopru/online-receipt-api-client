@@ -1,15 +1,13 @@
-# PHP клиент для API автоматической фискализации чеков интернет-магазинов Модуль.Кассы
-[![](https://img.shields.io/packagist/l/Brandshopru/modulpos-php-api-client.svg?style=flat-square)](https://github.com/Brandshopru/modulpos-php-api-client/blob/master/LICENSE) 
-[![](https://img.shields.io/packagist/dt/Brandshopru/modulpos-php-api-client.svg?style=flat-square)](https://packagist.org/packages/Brandshopru/modulpos-php-api-client)
-[![](https://img.shields.io/packagist/v/Brandshopru/modulpos-php-api-client.svg?style=flat-square)](https://packagist.org/packages/Brandshopru/modulpos-php-api-client)
-[![](https://img.shields.io/travis/Brandshopru/modulpos-php-api-client.svg?style=flat-square)](https://travis-ci.org/Brandshopru/modulpos-php-api-client)
-[![](https://img.shields.io/codecov/c/github/Brandshopru/modulpos-php-api-client.svg?style=flat-square)](https://codecov.io/gh/Brandshopru/modulpos-php-api-client)
+# PHP клиент для API автоматической фискализации чеков интернет-магазина
+[![](https://img.shields.io/packagist/l/Brandshopru/online-receipt-php-api-client.svg?style=flat-square)](https://github.com/Brandshopru/online-receipt-php-api-client/blob/master/LICENSE) 
+[![](https://img.shields.io/packagist/dt/Brandshopru/online-receipt-php-api-client.svg?style=flat-square)](https://packagist.org/packages/Brandshopru/online-receipt-php-api-client)
+[![](https://img.shields.io/packagist/v/Brandshopru/online-receipt-php-api-client.svg?style=flat-square)](https://packagist.org/packages/Brandshopru/online-receipt-php-api-client)
+[![](https://img.shields.io/travis/Brandshopru/online-receipt-php-api-client.svg?style=flat-square)](https://travis-ci.org/Brandshopru/online-receipt-php-api-client)
+[![](https://img.shields.io/codecov/c/github/Brandshopru/online-receipt-php-api-client.svg?style=flat-square)](https://codecov.io/gh/Brandshopru/online-receipt-php-api-client)
 [![StyleCI](https://styleci.io/repos/98306851/shield?branch=master)](https://styleci.io/repos/98306851)
 
 Пакет предоставляет удобный интерфейс для общения с API Модуль.Кассы для отправки данных чеков в сервис фискализации. 
 Пакет упрощает разработку модулей интеграции интернет-магазина с севисом фискализации Модуль.Кассы.
-
-Часть описания дублирует оригинал [документации по API Модуль.Кассы](http://modulkassa.ru/upload/medialibrary/abb/api-avtomaticheskoy-fiskalizatsii-chekov-internet_magazinov-_ver.1.2_.pdf)
 
 
 ## Требования
@@ -22,25 +20,10 @@
 Вы можете установить данный пакет с помощью сomposer:
 
 ```
-composer require brandshopru/modulpos-php-api-client
+composer require brandshopru/online-receipt-php-api-client
 ```
 
 ## Использование
-Схема процесса фискализации подробна описана в [документации к API](https://support.modulkassa.ru/upload/medialibrary/abb/API%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B9%20%D1%84%D0%B8%D1%81%D0%BA%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%87%D0%B5%D0%BA%D0%BE%D0%B2%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82-%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D0%BE%D0%B2%20(ver.1.4).pdf). В кратце необходимо связать точку продаж с интернет магазином, настроить отправку данных чеков и проверить статус отправленного чека.
-
-### Создания связки аккаунта и розничной точки
-Для начала необходимо в личном кабинете Модуль.Кассы создать розничную точку продаж, активировать у неё функцию `Использовать для печати документов интернет-магазина` и получить идентификатор `uuid`. Далее вызываем связку
-
-```php
-$login = 'test@test.ru'; // Логин от аккаунта Модуль.Кассы
-$password = 'password'; // Пароль от аккаунта Модуль.Кассы
-$retailPointUuid = 'uuid'; // Идентификатор розничной точки
-$testMode = true; // Тестовый режим
-$associate = new \Brandshopru\OnlineReceiptApiClient\Associate($login, $password, $retailPointUuid, $testMode);
-$result = $associate->init();
-```
-
-В `$result` получим массив с данным `userName` и `password` которые будут использоватся для дальнейших обращений к API. Их нужно где-нибудь сохранить, например в базе данных.
 
 ### Отправка данных чека на сервер фискализации (создание документа)
 Для начала необходимо сформировать данные самого чека. Для этого достаточно для ваших моделей инплементировать интерфейсы OnlineReceiptOrderInterface для заказа, OnlineReceiptOrderItemInterface для товара в заказе, OnlineReceiptPaymentItemInterface для способа оплаты. Также вы можете использовать entity из пакета, или отнаследовать от них собственные классы переопределив методы на собственные.
@@ -129,9 +112,9 @@ $result = $client->getStatusDocumentById($documentId);
 
 Также в массив придет `fnState` - статус фискального накопителя, может принимать значения:
 
-* ready ​- соединение с фискальным накопителем установлено, состояние позволяет фискализировать чеки
-* associated​ - клиент успешно связан с розничной точкой, но касса еще ни разу не вышла на связь и не сообщила свое состояние
-* failed ​- Проблемы получения статуса фискального накопителя. Этот статус не препятствует добавлению документов для фискализации. Все документы будут добавлены в очередь на сервере и дождутся момента когда касса будет в состоянии их фискализировать
+* ready - соединение с фискальным накопителем установлено, состояние позволяет фискализировать чеки
+* associated - клиент успешно связан с розничной точкой, но касса еще ни разу не вышла на связь и не сообщила свое состояние
+* failed - Проблемы получения статуса фискального накопителя. Этот статус не препятствует добавлению документов для фискализации. Все документы будут добавлены в очередь на сервере и дождутся момента когда касса будет в состоянии их фискализировать
 
 Кроме того вы можете вызвать отдельно метод проверки статуса фискального накопителя (сервиса фискализации):
 ```php
@@ -139,4 +122,4 @@ $client = new \Brandshopru\OnlineReceiptApiClient\Client($login, $password, $tes
 $result = $client->getStatusFiscalService();
 ```
 ## Лицензия
-[MIT](https://raw.githubusercontent.com/Brandshopru/modulpos-php-api-client/master/LICENSE)
+[MIT](https://raw.githubusercontent.com/Brandshopru/online-receipt-php-api-client/master/LICENSE)
