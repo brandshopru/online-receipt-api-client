@@ -1,0 +1,29 @@
+{
+  "name": "brandshopru/online-receipt-api-client",
+  "description": "PHP client for Online receipt API Fiscal Service",
+  "type": "library",
+  "require": {
+    "php": "^7.1",
+    "guzzlehttp/guzzle": "^6.0",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.0|^8.0"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Brandshop.ru"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Brandshopru\\OnlineReceiptApiClient\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  }
+}
