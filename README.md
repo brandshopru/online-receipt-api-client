@@ -4,10 +4,9 @@
 [![](https://img.shields.io/packagist/v/Brandshopru/online-receipt-php-api-client.svg?style=flat-square)](https://packagist.org/packages/Brandshopru/online-receipt-php-api-client)
 [![](https://img.shields.io/travis/Brandshopru/online-receipt-php-api-client.svg?style=flat-square)](https://travis-ci.org/Brandshopru/online-receipt-php-api-client)
 [![](https://img.shields.io/codecov/c/github/Brandshopru/online-receipt-php-api-client.svg?style=flat-square)](https://codecov.io/gh/Brandshopru/online-receipt-php-api-client)
-[![StyleCI](https://styleci.io/repos/98306851/shield?branch=master)](https://styleci.io/repos/98306851)
 
-Пакет предоставляет удобный интерфейс для общения с API Модуль.Кассы для отправки данных чеков в сервис фискализации. 
-Пакет упрощает разработку модулей интеграции интернет-магазина с севисом фискализации Модуль.Кассы.
+Пакет предоставляет удобный интерфейс для общения с API Онлайн.Чека для отправки данных чеков в сервис фискализации. 
+Пакет упрощает разработку модулей интеграции интернет-магазина с сервисом фискализации Онлайн.Чека.
 
 
 ## Требования
@@ -15,13 +14,6 @@
 * guzzlehttp/guzzle (или любой клиент следующий интерфейсу `\GuzzleHttp\ClientInterface`)
 * ext-json
 * curl
-
-## Установка
-Вы можете установить данный пакет с помощью сomposer:
-
-```
-composer require brandshopru/online-receipt-php-api-client
-```
 
 ## Использование
 
@@ -88,7 +80,7 @@ $printReceipt = true; // Печатать ли чек на кассе
 $result = $client->sendCheck($order, $responseUrl, $printReceipt, $cashier);
 ```
 Все параметры кроме $order - опциональные. Если не передан объект `OnlineReceiptCashierInterface` 
-то будут использованны данные из настроек торговой точки.
+то будут использованы данные из настроек торговой точки.
 
 В ответ придет массив со статусом обработки документа и фискального накопителя.
 
