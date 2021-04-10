@@ -40,8 +40,6 @@ interface ClientInterface
 
     /**
      * Получение JWT
-     *
-     * @return array
      */
-    public function getAuthToken();
+    public function authToken();
 }

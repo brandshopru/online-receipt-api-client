@@ -52,8 +52,6 @@ class Client implements ClientInterface
      * @param string $password
      * @param bool $testMode
      * @param \GuzzleHttp\ClientInterface $client
-     *
-     * @see \Brandshopru\OnlineReceiptApiClient\Associate::init()
      */
     public function __construct(string $login, string $password, bool $testMode = false, \GuzzleHttp\ClientInterface $client = null)
     {
@@ -109,10 +107,8 @@ class Client implements ClientInterface
 
     /**
      * Получение JWT
-     *
-     * @return array
      */
-    public function getAuthToken()
+    public function authToken()
     {
         $url = Config::getBaseUrl($this->testMode) . self::LOGIN_URI;
 
