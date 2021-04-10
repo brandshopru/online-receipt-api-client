@@ -39,9 +39,9 @@ class ClientTest extends TestCase
      */
     public static function setUpBeforeClass(): void
     {
-        $login = getenv('MODULPOS_LOGIN');
-        $password = getenv('MODULPOS_PASSWORD');
-        $retailPointUuid = getenv('MODULPOS_RETAIL_POINT_UUID');
+        $login = getenv('ONLINERECEIPT_LOGIN');
+        $password = getenv('ONLINERECEIPT_PASSWORD');
+        $retailPointUuid = getenv('ONLINERECEIPT_RETAIL_POINT_UUID');
 
         $associate = new Associate($login, $password, $retailPointUuid, true);
 
