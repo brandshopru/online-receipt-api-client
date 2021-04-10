@@ -88,7 +88,7 @@ class Client implements ClientInterface
         $url = Config::getBaseUrl($this->testMode) . self::SEND_CHECK_DATA_URI;
         $checkData = CheckDataFactory::convertToArray($order, $responseUrl, $printReceipt, $cashier);
 
-        return $this->send('POST', $url, $checkData);
+        return $this->send('PUT', $url, $checkData);
     }
 
     /**
