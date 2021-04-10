@@ -1,9 +1,6 @@
 <?php
 /**
  * This file is part of OnlineReceipt package.
- *
- *
- *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
@@ -44,10 +41,6 @@ class Client implements ClientInterface
 
     /**
      * Client constructor.
-     *
-     * В конструктор необходимо передать данные полученные
-     * в результате ассоциализации интернет-магазина
-     * с розничной точкой
      *
      * @param string $login
      * @param string $password

@@ -1,9 +1,6 @@
 <?php
 /**
  * This file is part of OnlineReceipt package.
- *
- *
- *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
@@ -25,7 +22,7 @@ class ConfigTest extends TestCase
         $this->assertTrue($baseUrl === Config::BASE_TEST_URI);
     }
 
-    public function testGetBaseUrlWorkMode(): void
+    public function testGetBaseUrlProdMode(): void
     {
         $baseUrl = Config::getBaseUrl();
 

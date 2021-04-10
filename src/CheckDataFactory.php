@@ -1,9 +1,6 @@
 <?php
 /**
  * This file is part of OnlineReceipt package.
- *
- *
- *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
@@ -20,7 +17,7 @@ use Brandshopru\OnlineReceiptApiClient\Exceptions\RequiredParameterNotFound;
  * Class CheckDataFactory.
  *
  * Фабрика преобразует объект интерфейса OnlineReceiptOrderInterface в массив
- * который можно использовать для отправки данных в API модулькассы
+ * который можно использовать для отправки данных в API
  */
 class CheckDataFactory
 {
