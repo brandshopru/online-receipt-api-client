@@ -37,4 +37,11 @@ interface ClientInterface
      * @return array
      */
     public function getStatusDocumentById($documentId);
+
+    /**
+     * Получение JWT
+     *
+     * @return array
+     */
+    public function getAuthToken();
 }

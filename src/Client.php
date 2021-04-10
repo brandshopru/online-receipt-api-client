@@ -17,6 +17,7 @@ use Brandshopru\OnlineReceiptApiClient\Contracts\OnlineReceiptOrderInterface;
  */
 class Client implements ClientInterface
 {
+    const LOGIN_URI = '/login';
     const STATUS_URI = '/status';
     const SEND_CHECK_DATA_URI = '/doc';
     /**
@@ -28,6 +29,11 @@ class Client implements ClientInterface
      * @var string
      */
     private $password;
+
+    /**
+     * @var string
+     */
+    private $token;
 
     /**
      * @var bool
@@ -102,15 +108,44 @@ class Client implements ClientInterface
     }
 
     /**
-     * @param string $method
-     * @param string $url
-     * @param array $data
+     * Получение JWT
      *
      * @return array
      */
-    private function send(string $method, string $url, array $data = []): array
+    public function getAuthToken()
     {
-        $authParams = ['auth' => [$this->login, $this->password], 'json' => $data];
+        $url = Config::getBaseUrl($this->testMode) . self::LOGIN_URI;
+
+        $response = $this->send('POST', $url, [
+            'username' => $this->login,
+            'password' => $this->password
+        ], true);
+
+        $this->token = $response['access_token'];
+    }
+
+    /**
+     * @param string $method
+     * @param string $url
+     * @param array $data
+     * @param bool $login
+     *
+     * @return array
+     */
+    private function send(string $method, string $url, array $data = [], bool $login = false): array
+    {
+        $authParams = [
+            'headers' => [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+            ],
+            'json' => $data
+        ];
+
+        if (!$login) {
+            $authParams['headers']['Authorization'] = "Bearer " . $this->token;
+        }
+
         $response = $this->client->request($method, $url, $authParams);
 
         return json_decode($response->getBody()->getContents(), true);
