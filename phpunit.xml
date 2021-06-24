@@ -20,8 +20,8 @@
         </whitelist>
     </filter>
     <php>
-        <env name="MODULPOS_LOGIN" value="test"/>
-        <env name="MODULPOS_PASSWORD" value="test"/>
-        <env name="MODULPOS_RETAIL_POINT_UUID" value="test"/>
+        <env name="ONLINERECEIPT_LOGIN" value="test"/>
+        <env name="ONLINERECEIPT_PASSWORD" value="test"/>
+        <env name="ONLINERECEIPT_RETAIL_POINT_UUID" value="test"/>
     </php>
 </phpunit>
