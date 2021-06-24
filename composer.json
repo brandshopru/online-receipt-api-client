@@ -2,7 +2,7 @@
   "name": "brandshopru/online-receipt-api-client",
   "description": "PHP client for Online receipt API Fiscal Service",
   "type": "library",
-  "version": "2.2",
+  "version": "2.4",
   "require": {
     "php": "^7.1",
     "guzzlehttp/guzzle": "^6.0",
