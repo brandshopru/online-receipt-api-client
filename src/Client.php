@@ -100,7 +100,7 @@ class Client implements ClientInterface
      */
     public function getStatusDocumentById($documentId)
     {
-        $url = Config::getBaseUrl($this->testMode) . self::SEND_CHECK_DATA_URI . '/' . $documentId . '/status';
+        $url = Config::getBaseUrl($this->testMode) . self::SEND_CHECK_DATA_URI . '/' . $documentId;
 
         return $this->send('GET', $url);
     }
