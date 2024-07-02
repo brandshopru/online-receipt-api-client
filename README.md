@@ -10,7 +10,7 @@
 
 
 ## Требования
-* php ^7.1
+* php 7.1, 8 и выше
 * guzzlehttp/guzzle (или любой клиент следующий интерфейсу `\GuzzleHttp\ClientInterface`)
 * ext-json
 * curl
