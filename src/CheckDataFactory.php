@@ -31,9 +31,9 @@ class CheckDataFactory
      */
     public static function convertToArray(
         OnlineReceiptOrderInterface $order,
-        $responseUrl = null,
-        $printReceipt = false,
-        $cashier = null
+                                    $responseUrl = null,
+                                    $printReceipt = false,
+                                    $cashier = null
     )
     {
         self::validate($order);
@@ -62,13 +62,15 @@ class CheckDataFactory
                 'quantity' => $item->getQuantity(),
                 'vatTag' => $item->getVatTag(),
                 'paymentObject' => $item->getPaymentObject(),
-                'paymentMethod' => $item->getPaymentMethod(),
+                'paymentMethod' => $item->getPaymentMethod()
             ];
             if ($item->getDiscSum() !== false) {
                 $itemData['discSum'] = $item->getDiscSum();
             }
             if ($item->getNomenclatureCode() !== false) {
                 $itemData['nomenclatureCode'] = $item->getNomenclatureCode();
+                $itemData['uuidCodeCheck'] = $item->getUuidCodeCheck();
+                $itemData['timeCodeCheck'] = $item->getTimeCodeCheck();
             }
             $checkData['inventPositions'][] = $itemData;
         }

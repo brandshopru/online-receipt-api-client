@@ -105,6 +105,16 @@ class OrderItem extends AbstractEntity implements OnlineReceiptOrderItemInterfac
     protected $nomenclatureCode;
 
     /**
+     * @var string
+     */
+    protected $uuidCodeCheck;
+
+    /**
+     * @var string
+     */
+    protected $timeCodeCheck;
+
+    /**
      * @return float
      */
     public function getDiscSum()
@@ -248,5 +258,38 @@ class OrderItem extends AbstractEntity implements OnlineReceiptOrderItemInterfac
     public function setNomenclatureCode($nomenclatureCode)
     {
         $this->nomenclatureCode = $nomenclatureCode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUuidCodeCheck()
+    {
+        return $this->uuidCodeCheck;
+    }
+
+    /**
+     * @param $uuidCodeCheck
+     */
+    public function setUuidCodeCheck($uuidCodeCheck)
+    {
+        $this->uuidCodeCheck = $uuidCodeCheck;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTimeCodeCheck()
+    {
+        return $this->timeCodeCheck;
+    }
+
+    /**
+     * @param $timeCodeCheck
+     * @return void
+     */
+    public function setTimeCodeCheck($timeCodeCheck)
+    {
+        $this->timeCodeCheck = $timeCodeCheck;
     }
 }

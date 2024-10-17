@@ -2,7 +2,7 @@
   "name": "brandshopru/online-receipt-api-client",
   "description": "PHP client for Online receipt API Fiscal Service",
   "type": "library",
-  "version": "2.5.3",
+  "version": "3.0.0",
   "require": {
     "php": "^7.1 || ^8.0",
     "guzzlehttp/guzzle": "^6.0",
@@ -14,7 +14,9 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Brandshop.ru"
+      "name": "Vladimir Smirnov",
+      "email": "volodya@brandshop.ru",
+      "homepage": "https://brandshop.ru"
     }
   ],
   "autoload": {
