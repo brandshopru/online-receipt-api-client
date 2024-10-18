@@ -107,12 +107,7 @@ class OrderItem extends AbstractEntity implements OnlineReceiptOrderItemInterfac
     /**
      * @var string
      */
-    protected $uuidCodeCheck;
-
-    /**
-     * @var string
-     */
-    protected $timeCodeCheck;
+    protected $codeCheck;
 
     /**
      * @return float
@@ -263,33 +258,16 @@ class OrderItem extends AbstractEntity implements OnlineReceiptOrderItemInterfac
     /**
      * @return string
      */
-    public function getUuidCodeCheck()
+    public function getCodeCheck()
     {
-        return $this->uuidCodeCheck;
+        return $this->codeCheck;
     }
 
     /**
      * @param $uuidCodeCheck
      */
-    public function setUuidCodeCheck($uuidCodeCheck)
+    public function setCodeCheck($codeCheck)
     {
-        $this->uuidCodeCheck = $uuidCodeCheck;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTimeCodeCheck()
-    {
-        return $this->timeCodeCheck;
-    }
-
-    /**
-     * @param $timeCodeCheck
-     * @return void
-     */
-    public function setTimeCodeCheck($timeCodeCheck)
-    {
-        $this->timeCodeCheck = $timeCodeCheck;
+        $this->codeCheck = $codeCheck;
     }
 }

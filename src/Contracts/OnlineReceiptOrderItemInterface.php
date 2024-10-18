@@ -82,20 +82,11 @@ interface OnlineReceiptOrderItemInterface
     public function getDiscSum();
 
     /**
-     * Id запроса на проверку разрешительного режима
-     * для использования кода маркировки(тэг 1265)
+     * Ответ на проверку разрешительного режима
+     * для использования «отраслевой реквизит предмета расчета(тэг 1260)
      * Пример: UUID=2ce10bdb-6510-4d37-be04-dd473b98c728&Time=1692691702065
      *
      * @return mixed
      */
-    public function getUuidCodeCheck();
-
-    /**
-     * Время запроса на проверку разрешительного режима
-     * для использования кода маркировки(тэг 1265)
-     * Пример: UUID=2ce10bdb-6510-4d37-be04-dd473b98c728&Time=1692691702065
-     *
-     * @return mixed
-     */
-    public function getTimeCodeCheck();
+    public function getCodeCheck();
 }

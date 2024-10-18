@@ -69,8 +69,7 @@ class CheckDataFactory
             }
             if ($item->getNomenclatureCode() !== false) {
                 $itemData['nomenclatureCode'] = $item->getNomenclatureCode();
-                $itemData['uuidCodeCheck'] = $item->getUuidCodeCheck();
-                $itemData['timeCodeCheck'] = $item->getTimeCodeCheck();
+                $itemData['codeCheck'] = $item->getCodeCheck();
             }
             $checkData['inventPositions'][] = $itemData;
         }
