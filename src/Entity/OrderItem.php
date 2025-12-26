@@ -62,6 +62,7 @@ class OrderItem extends AbstractEntity implements OnlineReceiptOrderItemInterfac
         self::VAT_10,
         self::VAT_18,
         self::VAT_20,
+        self::VAT_22,
         self::VAT_10_110,
         self::VAT_18_118,
         self::VAT_20_120,
