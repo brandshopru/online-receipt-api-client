@@ -61,6 +61,7 @@ class CheckDataFactory
                 'price' => $item->getPrice(),
                 'quantity' => $item->getQuantity(),
                 'vatTag' => $item->getVatTag(),
+                'vat' => $item->getVat(),
                 'paymentObject' => $item->getPaymentObject(),
                 'paymentMethod' => $item->getPaymentMethod()
             ];
@@ -128,6 +129,9 @@ class CheckDataFactory
             }
             if (!$item->getVatTag()) {
                 throw new RequiredParameterNotFound('vatTag in orderItem is required');
+            }
+            if (!$item->getVat()) {
+                throw new RequiredParameterNotFound('vat in orderItem is required');
             }
             if (!$item->getQuantity()) {
                 throw new RequiredParameterNotFound('quantity in orderItem is required');

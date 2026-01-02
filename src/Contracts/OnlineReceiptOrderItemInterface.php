@@ -47,6 +47,13 @@ interface OnlineReceiptOrderItemInterface
     public function getVatTag();
 
     /**
+     * Процент НДС.
+     *
+     * @return int
+     */
+    public function getVat();
+
+    /**
      * Название товара. 128 символов в UTF-8.
      *
      * @return string

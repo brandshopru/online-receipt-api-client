@@ -43,6 +43,7 @@ class CheckDataFactoryTest extends TestCase
             'price' => 100,
             'quantity' => 1,
             'vatTag' => OrderItem::VAT_NO,
+            'vat' => 22,
             'name' => 'Test Product1',
         ]);
 
@@ -50,6 +51,7 @@ class CheckDataFactoryTest extends TestCase
             'price' => 200,
             'quantity' => 1,
             'vatTag' => OrderItem::VAT_NO,
+            'vat' => 22,
             'name' => 'Test Product2',
         ]);
 

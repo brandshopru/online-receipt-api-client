@@ -41,6 +41,11 @@ class OrderItem extends AbstractEntity implements OnlineReceiptOrderItemInterfac
     /**
      * @var string
      */
+    protected $vat;
+
+    /**
+     * @var string
+     */
     protected $name;
 
     /**
@@ -178,6 +183,22 @@ class OrderItem extends AbstractEntity implements OnlineReceiptOrderItemInterfac
         }
 
         $this->vatTag = $vatTag;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVat()
+    {
+        return $this->vat;
+    }
+
+    /**
+     * @param int $vat
+     */
+    public function setVat($vat)
+    {
+        $this->vat = $vat;
     }
 
     /**

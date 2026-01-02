@@ -23,6 +23,7 @@ class OrderItemTest extends TestCase
     private $price;
     private $quantity;
     private $vatTag;
+    private $vat;
     private $name;
     private $paymentMethod;
     private $paymentObject;
@@ -32,6 +33,7 @@ class OrderItemTest extends TestCase
         $this->price = 32.21;
         $this->quantity = rand(1, 10);
         $this->vatTag = OrderItem::VAT_NO;
+        $this->vat = 22;
         $this->name = 'Test product';
         $this->paymentMethod = 'full_prepayment';
         $this->paymentObject = 'commodity';
@@ -46,11 +48,13 @@ class OrderItemTest extends TestCase
         $order->setName($this->name);
         $order->setQuantity($this->quantity);
         $order->setVatTag($this->vatTag);
+        $order->setVat($this->vat);
 
         $this->assertEquals($order->getName(), $this->name);
         $this->assertEquals($order->getPrice(), $this->price);
         $this->assertEquals($order->getQuantity(), $this->quantity);
         $this->assertEquals($order->getVatTag(), $this->vatTag);
+        $this->assertEquals($order->getVat(), $this->vat);
     }
 
     public function testOrderItemCanBeCreatedByArray(): void
@@ -60,6 +64,7 @@ class OrderItemTest extends TestCase
             'name' => $this->name,
             'quantity' => $this->quantity,
             'vatTag' => $this->vatTag,
+            'vat' => $this->vat,
             'paymentMethod' => $this->paymentMethod,
             'paymentObject' => $this->paymentObject,
         ]);
@@ -68,6 +73,7 @@ class OrderItemTest extends TestCase
         $this->assertEquals($order->getPrice(), $this->price);
         $this->assertEquals($order->getQuantity(), $this->quantity);
         $this->assertEquals($order->getVatTag(), $this->vatTag);
+        $this->assertEquals($order->getVat(), $this->vat);
     }
 
     public function testOrderItemCanNotBeCreatedByArray(): void
@@ -78,6 +84,7 @@ class OrderItemTest extends TestCase
                 'name' => $this->name,
                 'quantity' => $this->quantity,
                 'vatTag' => $this->vatTag,
+                'vat' => $this->vat,
                 'methodNotAllowed' => 'methodNotAllowed',
             ]);
         } catch (\Exception $exception) {
